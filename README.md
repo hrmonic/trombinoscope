@@ -1,99 +1,95 @@
-# Trombinoscope
+<p align="center"><img src="docs/assets/project-hero.svg" alt="Trombinoscope — profile directory, list and card views, interactive map" width="100%"></p>
 
-**Annuaire interactif de profils fictifs, développé en HTML, CSS et JavaScript natifs.**
+<h1 align="center">Trombinoscope</h1>
 
-Trombinoscope est une application web front-end permettant de consulter un ensemble de profils à travers plusieurs modes d'affichage : tableau, cartes individuelles et carte géographique. Le projet a été réalisé dans le cadre de la formation **Développeur Web et Web Mobile** à l'ENI École Informatique.
+<p align="center"><strong>A fictional-profile directory built with vanilla JavaScript, responsive views and an interactive Leaflet map.</strong></p>
 
-L'objectif est de proposer une interface lisible et responsive, tout en mettant en pratique la manipulation du DOM, le chargement de données JSON et la gestion des préférences utilisateur sans framework JavaScript.
+<p align="center"><a href="README.fr.md">Lire en français</a> · <a href="#overview">Overview</a> · <a href="#features">Features</a> · <a href="#architecture">Architecture</a> · <a href="#getting-started">Run locally</a> · <a href="#quality">Quality</a> · <a href="#faq">FAQ</a> · <a href="#license">License</a></p>
 
-> **Données de démonstration :** les 15 profils présents dans l'application sont **entièrement fictifs**. Les noms, prénoms, descriptions et associations avec les villes ont été créés comme **fixtures** pour les besoins du développement et de la démonstration. Ils ne représentent pas les apprenants réels de la formation. Les coordonnées géographiques servent uniquement à positionner les profils fictifs sur la carte.
+<p align="center"><img alt="HTML, CSS, vanilla JS" src="https://img.shields.io/badge/stack-HTML%20%2F%20CSS%20%2F%20JavaScript-475569"> <img alt="Learning project" src="https://img.shields.io/badge/type-learning%20project-475569"></p>
 
-## Fonctionnalités
+<a id="overview"></a>
+## Overview
 
-| Fonctionnalité | Description |
+Trombinoscope is a frontend learning project developed during the ENI Web and Mobile Web Developer program. It demonstrates DOM manipulation, JSON-backed rendering, saved display preferences and Leaflet map interactions without a frontend framework.
+
+**Fictional sample data:** all 15 profiles are demonstration fixtures, not actual students. Names, descriptions and city associations were created for the project. Map coordinates serve as illustrative locations.
+
+Visitors can explore the same data in multiple views, open profile details and save display settings without an account.
+
+<a id="features"></a>
+## Capabilities
+
+| Feature | Purpose |
 | --- | --- |
-| Vue tableau | Consultation synthétique des profils avec nom, prénom et ville. |
-| Vue cartes | Présentation des profils sous forme de cartes individuelles. |
-| Fiches détaillées | Affichage dynamique des informations complémentaires dans une fenêtre dédiée. |
-| Carte interactive | Visualisation géographique des profils avec Leaflet.js et marqueurs interactifs. |
-| Préférences utilisateur | Choix du thème clair ou sombre et du mode d'affichage. |
-| Persistance locale | Conservation des préférences via `localStorage`, sans compte utilisateur. |
-| Interface responsive | Mise en page adaptée aux différents formats d'écran. |
 
-## Technologies
+| **Table view** | Names, locations and direct access to profile details. |
+| **Card view** | Responsive profile cards for different screen sizes. |
+| **Profile details** | Dynamically displayed biographical information. |
+| **Leaflet map** | Geographic markers with profile popups. |
+| **Local preferences** | Light/dark theme and preferred view stored in localStorage. |
+| **Responsive interface** | Layouts and navigation adapted to smaller devices. |
 
-- **HTML5** : structure et sémantique des pages.
-- **CSS3** : mise en page responsive, variables CSS et thèmes.
-- **JavaScript natif** : chargement des données, rendu dynamique et interactions.
-- **JSON** : source de données des profils fictifs.
-- **Leaflet.js** : affichage de la carte et des marqueurs géographiques.
-- **localStorage** : mémorisation des préférences du navigateur.
+<a id="architecture"></a>
+## Architecture and data
 
-L'application fonctionne côté client, sans backend, base de données ni framework front-end.
+The app is composed of HTML pages, a shared CSS file, vanilla JavaScript and the data/promo.json fixture file. There is no application backend, database or account system. Assets are organized under images/, with secondary pages in pages/.
 
-## Installation et lancement
+**Directories :** data/ · css/ · images/ · pages/ · index.html · script.js.
 
-### Prérequis
+<a id="getting-started"></a>
+## Run locally
 
-Un navigateur web récent et un serveur HTTP local suffisent. Un serveur est recommandé car les données JSON sont chargées avec `fetch()`, dont le fonctionnement peut être restreint lors de l'ouverture directe des fichiers en `file://`.
-
-### Démarrage
+Start a local HTTP server from the repository root, then open http://localhost:8000. Direct file:// loading may prevent fetch requests for the JSON fixtures.
 
 ```bash
+
 git clone https://github.com/hrmonic/trombinoscope.git
 cd trombinoscope
 python -m http.server 8000
+
 ```
 
-Ouvrir ensuite **http://localhost:8000** dans le navigateur.
+Another local HTTP server can also be used.
 
-Si Python n'est pas installé, un autre serveur HTTP local peut être utilisé, par exemple `php -S localhost:8000`.
+<a id="quality"></a>
+## Quality and limitations
 
-## Structure du projet
+The code separates fixture data from rendering and stores settings in the browser. Basic ARIA labels and responsive interactions are present, but no accessibility certification or automated test suite is claimed. Some page titles and asset paths still reflect the original training-project identity and require cleanup.
 
-```text
-trombinoscope/
-├── css/
-│   └── style.css             # Styles, thèmes et responsive
-├── data/
-│   └── promo.json            # Fixtures des 15 profils fictifs
-├── images/
-│   ├── avatar/               # Visuels associés aux profils
-│   ├── icon/                 # Icônes de l'interface
-│   └── logo/                 # Ressources graphiques
-├── pages/
-│   ├── carte.html            # Vue géographique
-│   ├── informations.html     # Informations sur le projet
-│   └── preferences.html      # Préférences d'affichage
-├── index.html                # Page principale
-├── script.js                 # Interactions et rendu dynamique
-└── README.md
-```
+### Potential improvements
 
-## Choix de conception
+- Add profile search, filtering and sorting.
+- Improve keyboard focus management within profile dialogs.
+- Normalize titles and asset paths for subdirectory hosting.
+- Add automated tests and actual UI screenshots.
 
-**Simplicité technique.** Le projet repose sur les API natives du navigateur pour illustrer les fondamentaux du développement web, sans dépendance à un framework d'interface.
+<a id="faq"></a>
+## Frequently asked questions
 
-**Données séparées de l'affichage.** Les profils sont chargés depuis `data/promo.json`. Cette organisation permet de modifier les fixtures sans réécrire la structure des pages.
+### Are these real student profiles?
 
-**Préférences persistantes.** Le thème et le mode d'affichage sont enregistrés localement afin de retrouver les réglages lors d'une nouvelle visite.
+No. All 15 records are fictional demonstration fixtures.
 
-**Navigation et accessibilité.** L'interface utilise des éléments HTML sémantiques, des libellés pour les commandes et des interactions adaptées au clic. Ces choix constituent une base d'accessibilité, sans prétendre à une certification ou à un audit complet.
+### Does the project need a database?
 
-## Pistes d'amélioration
+No. Profile records are loaded from a local JSON file.
 
-- Ajouter la recherche, le filtrage et le tri des profils.
-- Améliorer la gestion du focus et la navigation au clavier dans les fenêtres de détail.
-- Harmoniser les chemins de ressources pour faciliter l'hébergement sous un sous-répertoire, notamment sur GitHub Pages.
-- Ajouter des tests automatisés sur le chargement des fixtures et les préférences utilisateur.
-- Compléter la documentation par des captures d'écran de l'application.
+### Does it use a frontend framework?
 
-## Contexte
+No. It uses native HTML, CSS and JavaScript, alongside Leaflet for the map.
 
-Projet pédagogique réalisé pendant la formation **Développeur Web et Web Mobile (RNCP niveau 5)** à l'**ENI École Informatique**.
+### Are preferences remembered?
 
-**Auteur :** [Réda Touzani](https://github.com/hrmonic)
+Yes. The chosen theme and view are stored locally in the browser.
+
+<a id="license"></a>
+## License and maintainer
+
+This repository does not currently include a license file. Public access to source code does not automatically grant redistribution or reuse rights; an explicit license may be added later.
+
+**Maintainer:** [Réda Touzani](https://github.com/hrmonic).
 
 ---
 
-*Ce dépôt est une démonstration technique utilisant exclusivement des profils fictifs ; il ne constitue pas un annuaire réel d'apprenants.*
+*Frontend learning project — all directory records are fictional.*
