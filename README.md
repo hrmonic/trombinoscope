@@ -22,7 +22,6 @@ Visitors can explore the same data in multiple views, open profile details and s
 
 | Feature | Purpose |
 | --- | --- |
-
 | **Table view** | Names, locations and direct access to profile details. |
 | **Card view** | Responsive profile cards for different screen sizes. |
 | **Profile details** | Dynamically displayed biographical information. |

@@ -22,7 +22,6 @@ Un utilisateur peut consulter les mêmes données sous différentes présentatio
 
 | Fonction | Rôle |
 | --- | --- |
-
 | **Vue tableau** | Noms, prénoms, villes et accès aux détails. |
 | **Vue cartes** | Présentation adaptée à l’espace disponible. |
 | **Fiches de profil** | Affichage dynamique des informations complémentaires. |
